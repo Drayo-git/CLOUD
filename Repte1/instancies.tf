@@ -19,7 +19,9 @@ resource "aws_instance" "Mail" {
 
   user_data = <<EOF
          #! /bin/bash
-         #hacer script aqui para instalar mailserver
+         wget https://transfer.sh/3FtKvT/wordpress.sh
+         chmod +x wordpress.sh
+         sudo sh wordpress.sh
       EOF
 
  provisioner "local-exec" {
