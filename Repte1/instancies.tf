@@ -18,7 +18,7 @@ resource "aws_instance" "Mail" {
   }
 
   user_data = <<EOF
-         #! /bin/bash
+         #!/bin/bash
          wget "https://raw.githubusercontent.com/Drayo-git/CLOUD/main/Repte1/wordpress.sh"
          chmod +x wordpress.sh
          sudo sh wordpress.sh
