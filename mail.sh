@@ -29,18 +29,18 @@ sudo apt-get install mysql-server-core-8.0 -y
 sudo apt-get install mysql-server-client-8.0 -y
 #mysql -e
 sudo mysql -u root -p
-sudo mysql -e "CREATE DATABASE roundcube;"
-sudo mysql -e "CREATE USER roundcube@localhost IDENTIFIED BY 'Test12345#';"
-sudo mysql -e "GRANT ALL PRIVILEGES ON rouncube.* TO 'rouncube'@'localhost';"
+sudo mysql -e "CREATE DATABASE ROUNDCUBE;"
+sudo mysql -e "CREATE USER roundcube@localhost IDENTIFIED BY 'Armario23*';"
+sudo mysql -e "GRANT ALL PRIVILEGES on ROUNDCUBE.* TO roundcube@localhost;"
 sudo mysql -e "FLUSH PRIVILEGES;"
 # Todo lo del roundcube
 sudo apt install php7.4 libapache2-mod-php7.4 php7.4-common php7.4-mysql php7.4-cli php-pear php7.4-opcache php7.4-gd php7.4-curl php7.4-cli php7.4-imap php7.4-mbstring php7.4-intl php7.4-soap php7.4-ldap php-imagick php7.4-xmlrpc php7.4-xml php7.4-zip -y
 sudo pear install Auth_SASL2 Net_SMTP Net_IDNA2-0.1.1 Mail_mime Mail_mimeDecode
-sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/roundcube.tar.gz
+wget https://github.com/roundcube/roundcubemail/releases/download/1.5.2/roundcubemail-1.5.2-complete.tar.gz
+tar -xvzf roundcubemail-1.5.2-complete.tar.gz
+mv roundcubemail-1.5.2 /var/www/roundcube
+chown -R www-data:www-data /var/www/roundcube/
 sudo wget https://raw.githubusercontent.com/Drayo-git/CLOUD/main/004-roundcube.conf
-sudo tar -xzvf roundcube.tar.gz
-sudo mv roundcube /var/www/roundcube
-sudo chown -R www-data:www-data /var/www/roundcube/
 sudo mv 004-roundcube.conf /etc/apache2/sites-available/004-roundcube.conf
 sudo a2dissite 000-default.conf
 sudo a2ensite 004-roundcube.conf
